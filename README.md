@@ -1,4 +1,4 @@
-# JWT Code Dump
+# DBMS Code Dump
 
 This is a repository containing code dumps of the Database Management Systems (DBMS) coursework for B. Tech. (IT) Third Year at the Symbiosis Institute of Technology, Pune.
 
