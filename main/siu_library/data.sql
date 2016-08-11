@@ -75,11 +75,11 @@ insert into purchase (lid, slid, pid, bid, month) values(4, 1, 2, 3333, 1);
 insert into purchase (lid, slid, pid, bid, month) values(5, 1, 2, 4444, 11);
 insert into purchase (lid, slid, pid, bid, month) values(2, 5, 3, 4444, 5);
 
-insert into issue (memid, bid, lid, issuedate, returndate) values(4, 4444, 1, "1995-12-13", "1996-04-02");
-insert into issue (memid, bid, lid, issuedate, returndate) values(1, 1111, 4, "1996-12-13", "1997-04-02");
-insert into issue (memid, bid, lid, issuedate, returndate) values(2, 3333, 4, "1997-12-13", "1998-04-02");
-insert into issue (memid, bid, lid, issuedate, returndate) values(5, 4444, 5, "1998-12-13", "1999-04-02");
-insert into issue (memid, bid, lid, issuedate, returndate) values(3, 4444, 2, "1999-12-13", "2000-04-02");
+insert into issue (memid, bid, lid, issuedate, returndate) values(543, 4444, 1, "1995-12-13", "1996-04-02");
+insert into issue (memid, bid, lid, issuedate, returndate) values(506, 1111, 4, "1996-12-13", "1997-04-02");
+insert into issue (memid, bid, lid, issuedate, returndate) values(43, 3333, 4, "1997-12-13", "1998-04-02");
+insert into issue (memid, bid, lid, issuedate, returndate) values(48, 4444, 5, "1998-12-13", "1999-04-02");
+insert into issue (memid, bid, lid, issuedate, returndate) values(445, 4444, 2, "1999-12-13", "2000-04-02");
 
 insert into sells values(1, 3);
 insert into sells values(1, 2);
