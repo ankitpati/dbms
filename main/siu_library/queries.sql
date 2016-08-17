@@ -69,6 +69,13 @@ union
     select distinct lname as "Institute Name"
     from issue i natural join library inner join staff s on(i.memid = s.stid)
     where bid = 4444;
+
+select slname as "Sellers selling to libraries in same city"
+from library natural join seller natural join purchase;
+
+select aname as "Authors with books costing more than ₹500"
+from author natural join books_by natural join books
+where price > 500;
 /* end of siu_library/queries.sql */
 
 /* OUTPUT
@@ -169,5 +176,12 @@ union
 | SSBS           |
 | SLS            |
 +----------------+
+
++-------------------------------------------+
+| Sellers selling to libraries in same city |
++-------------------------------------------+
+| College Book Store                        |
+| Crossword                                 |
++-------------------------------------------+
 
 */

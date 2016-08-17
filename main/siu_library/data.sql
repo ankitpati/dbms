@@ -11,11 +11,11 @@ insert into library (lname, city) values("SSCA", "Kolkata");
 insert into library (lname, city) values("SIBM", "Hyderabad");
 insert into library (lname, city) values("SLS", "Bhubaneswar");
 
-insert into books values(1111, "The C Programming Language", 2, 1);
-insert into books values(2222, "The C++ Programming Language", 3, 1);
-insert into books values(3333, "Law of Torts", 4, 5);
-insert into books values(4444, "The Unix Philosophy", 1, 1);
-insert into books values(5555, "The Modern Prometheus", 5, 4);
+insert into books values(1111, "The C Programming Language", 2, 1, 300);
+insert into books values(2222, "The C++ Programming Language", 3, 1, 400);
+insert into books values(3333, "Law of Torts", 4, 5, 500);
+insert into books values(4444, "The Unix Philosophy", 1, 1, 600);
+insert into books values(5555, "The Modern Prometheus", 5, 4, 700);
 
 insert into author (aname) values("Brian Kernighan");
 insert into author (aname) values("Dennis Ritchie");

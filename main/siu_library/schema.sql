@@ -18,6 +18,7 @@ create table books(
     bname char(100) not null,
     totalcopies integer not null,
     lid integer not null,
+    price integer not null,
     foreign key(lid) references library(lid)
 );
 
