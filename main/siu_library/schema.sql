@@ -19,7 +19,7 @@ create table books(
     totalcopies integer not null,
     lid integer not null,
     price integer not null,
-    foreign key(lid) references library(lid)
+    foreign key(lid) references library(lid) on delete cascade
 );
 
 create table author(
@@ -43,9 +43,9 @@ create table books_by(
     aid integer not null,
     pid integer not null,
     unique(bid, aid, pid),
-    foreign key(bid) references books(bid),
-    foreign key(aid) references author(aid),
-    foreign key(pid) references publisher(pid)
+    foreign key(bid) references books(bid) on delete cascade,
+    foreign key(aid) references author(aid) on delete cascade,
+    foreign key(pid) references publisher(pid) on delete cascade
 );
 
 create table department(
@@ -59,14 +59,14 @@ create table student(
     sid integer primary key not null,
     sname char(100) not null,
     deptid integer not null,
-    foreign key(deptid) references department(deptid)
+    foreign key(deptid) references department(deptid) on delete cascade
 );
 
 create table staff(
     stid integer primary key not null,
     stname char(100) not null,
     deptid integer not null,
-    foreign key(deptid) references department(deptid)
+    foreign key(deptid) references department(deptid) on delete cascade
 );
 
 create table purchase(
@@ -76,10 +76,10 @@ create table purchase(
     pid integer not null,
     bid integer not null,
     month integer not null,
-    foreign key(lid) references library(lid),
-    foreign key(slid) references seller(slid),
-    foreign key(pid) references publisher(pid),
-    foreign key(bid) references books(bid)
+    foreign key(lid) references library(lid) on delete cascade,
+    foreign key(slid) references seller(slid) on delete cascade,
+    foreign key(pid) references publisher(pid) on delete cascade,
+    foreign key(bid) references books(bid) on delete cascade
 );
 
 create table issue(
@@ -89,15 +89,15 @@ create table issue(
     lid integer not null,
     issuedate date not null,
     returndate date not null,
-    foreign key(bid) references books(bid),
-    foreign key(lid) references library(lid)
+    foreign key(bid) references books(bid) on delete cascade,
+    foreign key(lid) references library(lid) on delete cascade
 );
 
 create table sells(
     slid integer not null,
     pid integer not null,
     unique(slid, pid),
-    foreign key(slid) references seller(slid),
-    foreign key(pid) references publisher(pid)
+    foreign key(slid) references seller(slid) on delete cascade,
+    foreign key(pid) references publisher(pid) on delete cascade
 );
 /* end of siu_library/schema.sql */

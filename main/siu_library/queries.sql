@@ -3,6 +3,8 @@
  * Author: Ankit Pati
  */
 
+use siu_library;
+
 select distinct lname as "Libraries in Pune"
 from library
 where city = "Pune";

@@ -3,6 +3,8 @@
  * Author: Ankit Pati
  */
 
+use siu_library;
+
 update books
 set price = price * 11
 where bid = 5555;
