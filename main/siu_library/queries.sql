@@ -78,6 +78,43 @@ from library natural join seller natural join purchase;
 select aname as "Authors with books costing more than ₹500"
 from author natural join books_by natural join books
 where price > 500;
+
+select sum(totalcopies) as "Total copies in SIT"
+from library natural join books
+where lname = "SIT";
+
+select avg(price) as "Average price of books by Dennis Ritchie"
+from books natural join books_by natural join author
+where aname = "Dennis Ritchie";
+
+select sum(totalcopies) as "Total books sold by sellers in Kolkata"
+from seller natural join purchase inner join library using(lid)
+    inner join books using(bid)
+where seller.city = "Kolkata";
+
+select bname as "Cheapest book in SIT"
+from books natural join library
+where lname = "SIT" and price = (
+    select min(price)
+    from books natural join library
+    where lname = "SIT"
+);
+
+select lname as "Library with costliest book"
+from books natural join library
+where price = (
+    select max(price)
+    from books natural join library
+);
+
+select count(*) as "Issuers from SIT"
+from books inner join issue using(bid) inner join student on(sid = memid)
+    natural join department
+where institutename = "SIT";
+
+select avg(price) as "Average price of books in SIT"
+from books natural join library
+where lname = "SIT";
 /* end of siu_library/queries.sql */
 
 /* OUTPUT
