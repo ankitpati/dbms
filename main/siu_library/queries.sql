@@ -115,6 +115,50 @@ where institutename = "SIT";
 select avg(price) as "Average price of books in SIT"
 from books natural join library
 where lname = "SIT";
+
+select sum(price) as "Price of purchases by SIBM in January"
+from books inner join purchase using(bid) inner join library
+    on(library.lid = purchase.lid)
+where lname = "SIBM" and month = 1;
+
+select count(*) as "Number of books by Dennis Ritchie"
+from books natural join books_by natural join author
+where aname = "Dennis Ritchie";
+
+select bname as "Costliest book by Tata McGraw Hill"
+from publisher natural join books_by natural join books
+where pname = "Tata McGraw Hill" and price = (
+    select max(price)
+    from publisher natural join books_by natural join books
+    where pname = "Tata McGraw Hill"
+);
+
+select upper(sname) as "SSBS Students in ALL CAPS"
+from student natural join department
+where institutename = "SSBS";
+
+select date_add(issuedate, interval 2 month)
+    as "2 months post issue of Dennis Ritchie's book"
+from issue inner join books using(bid) inner join books_by using(bid)
+    inner join author using(aid)
+where aname = "Dennis Ritchie";
+
+select last_day(issuedate) as "Last day of month when Tiashaa issued a book"
+from issue inner join student on(sid = memid)
+where sname = "Tiashaa Chatterjee";
+
+select distinct lower(lname) as "Institute with highest number of books in `lower case`"
+from books natural join library
+where lid = (
+    select lid
+    from (
+        select lid, count(*) as tmpcount
+        from books
+        group by lid
+        order by tmpcount desc
+    ) tmpalias
+    limit 1
+);
 /* end of siu_library/queries.sql */
 
 /* OUTPUT
@@ -231,5 +275,92 @@ where lname = "SIT";
 | Ken Thompson                                |
 | Mike Stone                                  |
 +---------------------------------------------+
+
++---------------------+
+| Total copies in SIT |
++---------------------+
+|                   6 |
++---------------------+
+
++------------------------------------------+
+| Average price of books by Dennis Ritchie |
++------------------------------------------+
+|                                 450.0000 |
++------------------------------------------+
+
++----------------------------------------+
+| Total books sold by sellers in Kolkata |
++----------------------------------------+
+|                                      5 |
++----------------------------------------+
+
++----------------------------+
+| Cheapest book in SIT       |
++----------------------------+
+| The C Programming Language |
++----------------------------+
+
++-----------------------------+
+| Library with costliest book |
++-----------------------------+
+| SIBM                        |
++-----------------------------+
+
++------------------+
+| Issuers from SIT |
++------------------+
+|                1 |
++------------------+
+
++-------------------------------+
+| Average price of books in SIT |
++-------------------------------+
+|                      433.3333 |
++-------------------------------+
+
++---------------------------------------+
+| Price of purchases by SIBM in January |
++---------------------------------------+
+|                                   500 |
++---------------------------------------+
+
++-----------------------------------+
+| Number of books by Dennis Ritchie |
++-----------------------------------+
+|                                 2 |
++-----------------------------------+
+
++------------------------------------+
+| Costliest book by Tata McGraw Hill |
++------------------------------------+
+| Law of Torts                       |
++------------------------------------+
+
++---------------------------+
+| SSBS Students in ALL CAPS |
++---------------------------+
+| MAYANK                    |
++---------------------------+
+
++----------------------------------------------+
+| 2 months post issue of Dennis Ritchie's book |
++----------------------------------------------+
+| 1996-02-13                                   |
+| 1997-02-13                                   |
+| 1999-02-13                                   |
+| 2000-02-13                                   |
++----------------------------------------------+
+
++----------------------------------------------+
+| Last day of month when Tiashaa issued a book |
++----------------------------------------------+
+| 1995-12-31                                   |
++----------------------------------------------+
+
++--------------------------------------------------------+
+| Institute with highest number of books in `lower case` |
++--------------------------------------------------------+
+| sit                                                    |
++--------------------------------------------------------+
 
 */
