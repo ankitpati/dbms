@@ -148,14 +148,14 @@ from issue inner join student on(sid = memid)
 where sname = "Tiashaa Chatterjee";
 
 select distinct lower(lname) as "Institute with highest number of books in `lower case`"
-from books natural join library
+from library
 where lid = (
     select lid
     from (
-        select lid, count(*) as tmpcount
+        select lid, sum(totalcopies) as tmpsum
         from books
         group by lid
-        order by tmpcount desc
+        order by tmpsum desc
     ) tmpalias
     limit 1
 );
