@@ -147,8 +147,9 @@ select last_day(issuedate) as "Last day of month when Tiashaa issued a book"
 from issue inner join student on(sid = memid)
 where sname = "Tiashaa Chatterjee";
 
-select distinct lower(lname) as "Institute with highest number of books in `lower case`"
-from library
+select lower(lname) as "Institute with highest number of books in `lower case`",
+    sum(totalcopies) as "Total copies"
+from books natural join library
 where lid = (
     select lid
     from (
@@ -158,7 +159,8 @@ where lid = (
         order by tmpsum desc
     ) tmpalias
     limit 1
-);
+)
+group by lname;
 /* end of siu_library/queries.sql */
 
 /* OUTPUT
@@ -357,10 +359,10 @@ where lid = (
 | 1995-12-31                                   |
 +----------------------------------------------+
 
-+--------------------------------------------------------+
-| Institute with highest number of books in `lower case` |
-+--------------------------------------------------------+
-| sit                                                    |
-+--------------------------------------------------------+
++--------------------------------------------------------+--------------+
+| Institute with highest number of books in `lower case` | Total copies |
++--------------------------------------------------------+--------------+
+| sit                                                    |            6 |
++--------------------------------------------------------+--------------+
 
 */
