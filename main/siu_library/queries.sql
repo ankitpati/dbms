@@ -50,10 +50,10 @@ select distinct slname as "Sellers in same city as SIT"
 from seller natural join library
 where lname = "SIT";
 
-select distinct pname as "Provides books to SSBS through College Book Store"
-from publisher natural join books_by natural join library natural join seller
-    natural join sells
-where slname = "College Book Store" and lname = "SSBS";
+select distinct pname as "Provides books to SSBS through Golden Books"
+from purchase natural join seller inner join publisher using(pid)
+    inner join library using(lid)
+where slname = "Golden Books" and lname = "SSBS";
 
 select distinct bname as "Books by Dennis and Prentice Hall"
 from books natural join publisher natural join books_by natural join author
@@ -71,6 +71,10 @@ union
     select distinct lname as "Institute Name"
     from issue i natural join library inner join staff s on(i.memid = s.stid)
     where bid = 4444;
+
+select distinct slname as "Seller selling books to SIT"
+from purchase natural join seller inner join library using(lid)
+where lname = "SIT";
 
 select slname as "Sellers selling to libraries in same city"
 from library natural join seller natural join purchase;
