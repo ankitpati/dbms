@@ -111,4 +111,25 @@ create table book_log(
     changedon datetime not null,
     action char(100) not null
 );
+
+create table books_by_log(
+    tid integer primary key not null auto_increment,
+    bid integer not null,
+    aid integer not null,
+    pid integer not null,
+    changedon datetime not null,
+    action char(100) not null
+);
+
+create table purchase_log(
+    tid integer primary key not null auto_increment,
+    prid integer not null,
+    lid integer not null,
+    slid integer not null,
+    pid integer not null,
+    bid integer not null,
+    month integer not null,
+    changedon datetime not null,
+    action char(100) not null
+);
 /* end of siu_library/schema.sql */
