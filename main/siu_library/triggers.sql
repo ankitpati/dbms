@@ -17,4 +17,5 @@ end $
 delimiter ;
 update books set price = price * 11 where bid = 5555;
 update books set price = price / 11 where bid = 5555;
+select * from book_log;
 /* end of siu_library/triggers.sql */
