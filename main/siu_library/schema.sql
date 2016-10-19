@@ -100,4 +100,15 @@ create table sells(
     foreign key(slid) references seller(slid) on delete cascade,
     foreign key(pid) references publisher(pid) on delete cascade
 );
+
+create table book_log(
+    tid integer primary key not null auto_increment,
+    bid integer not null,
+    bname char(100) not null,
+    lid integer not null,
+    price integer not null,
+    totalcopies integer not null,
+    changedon datetime not null,
+    action char(100) not null
+);
 /* end of siu_library/schema.sql */
