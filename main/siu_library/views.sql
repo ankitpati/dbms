@@ -18,8 +18,7 @@ from author natural join books_by natural join books;
 
 /* OUTPUT
 
-shell> select * from staff_issue;
-
+select * from staff_issue \G
 *************************** 1. row ***************************
        deptid: 1
           bid: 3333
@@ -49,8 +48,7 @@ institutename: SIT
      deptname: Nutrition
 institutename: SSCA
 
-shell> select * from author_books;
-
+select * from author_books;
 +-----------+-----------------+---------+------------------------------+
 | Author ID | Author          | Book ID | Book                         |
 +-----------+-----------------+---------+------------------------------+
