@@ -99,4 +99,4 @@ insert into sells values(4, 4);
 insert into sells values(4, 3);
 insert into sells values(5, 3);
 insert into sells values(5, 2);
-/* end of siu_library/schema.sql */
+/* end of siu_library/data.sql */
