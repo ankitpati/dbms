@@ -3,7 +3,7 @@
  * Author: Ankit Pati
  */
 
-drop database siu_library;
+drop database if exists siu_library;
 create database siu_library;
 use siu_library;
 
