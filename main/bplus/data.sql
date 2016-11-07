@@ -27,6 +27,9 @@ insert into phone values("64321", 3);
 insert into phone values("42513", 4);
 insert into phone values("45873", 4);
 insert into phone values("41578", 5);
+insert into phone values("55412", 6);
+insert into phone values("35832", 7);
+insert into phone values("45832", 8);
 
 insert into donor values(6, true, 300, 22.572612, 88.363911);
 insert into donor values(8, true, 0, 22.572632, 88.363943);
