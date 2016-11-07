@@ -11,9 +11,8 @@ create table hospital(
     registration_number integer primary key not null auto_increment,
     name char(100) not null,
 
-    street char(100) not null,
-    city char(100) not null,
-    pincode integer not null
+    latitude decimal(8, 6) not null,
+    longitude decimal(8, 6) not null
 );
 
 create table person(
@@ -23,11 +22,7 @@ create table person(
     age integer not null,
     gender char not null,
     blood_group char(3) not null,
-    govt_id char(100) not null,
-
-    street char(100) not null,
-    city char(100) not null,
-    pincode integer not null
+    govt_id char(100) not null
 );
 
 create table phone(
@@ -42,10 +37,8 @@ create table donor(
     capable boolean not null,
     cost integer not null,
 
-    latitude decimal not null,
-    longitude decimal not null,
-
-    location_method char(100) not null,
+    latitude decimal(8, 6) not null,
+    longitude decimal(8, 6) not null,
 
     foreign key(person_id) references person(person_id) on delete cascade
 );
@@ -81,7 +74,7 @@ create table caretaker(
 
 create table request(
     patient_id integer primary key not null,
-    volume decimal not null,
+    volume integer not null,
 
     foreign key(patient_id) references patient(person_id) on delete cascade
 );
