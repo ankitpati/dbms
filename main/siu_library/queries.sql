@@ -34,7 +34,7 @@ from library natural join books
 where lname = "SIT";
 
 select distinct bname as "Books by Ken"
-from books natural join publisher natural join books_by natural join author
+from books natural join books_by natural join author
 where aname = "Ken Thompson";
 
 select distinct bname as "Books issued by Tiashaa"
