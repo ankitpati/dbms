@@ -1,4 +1,4 @@
-/* siu_library/schema.sql */
+/* siu_library/data.sql */
 /* Date  : 03 August 2016
  * Author: Ankit Pati
  */
