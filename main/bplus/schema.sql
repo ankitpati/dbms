@@ -22,7 +22,7 @@ create table person(
     age integer unsigned not null,
     gender char not null,
     blood_group char(3) not null,
-    govt_id char(100) not null
+    govt_id char(100) unique not null
 );
 
 create table phone(

@@ -19,6 +19,7 @@ insert into person values(5, "p5", "Mayank Verma", 21, "M", "B-", "M123");
 insert into person values(6, "p6", "Saif Ali", 22, "M", "A-", "S111");
 insert into person values(7, "p7", "Junaed Siddique", 20, "M", "A+", "J987");
 insert into person values(8, "p8", "Shounak Paul", 20, "M", "O-", "S102");
+insert into person values(9, "p9", "Ritwik Chakraborty", 18, "M", "O-", "R414");
 
 insert into phone values("99032", 1);
 insert into phone values("65222", 1);
