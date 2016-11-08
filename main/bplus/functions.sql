@@ -62,6 +62,6 @@ begin
 end $
 delimiter ;
 
-select nearest_donor(2);
-select total_blood_by_name("Ankit Pati");
+select nearest_donor(2) as "ID of Nearest Donor";
+select total_blood_by_name("Ankit Pati") as "Total blood requested by Ankit";
 /* end of bplus/functions.sql */
