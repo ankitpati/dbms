@@ -24,4 +24,8 @@ select latitude, longitude
 from patient
     inner join hospital on(registration_number = hospital_registration_number)
 where person_id = 2;
+
+select *
+from person natural join donor
+where person_id = (select nearest_donor(2));
 /* end of bplus/queries.sql */
